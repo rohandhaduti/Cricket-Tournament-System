@@ -1,0 +1,146 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cricket Tournament Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI', sans-serif;
+}
+
+html, body{
+    height:100%;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    background:linear-gradient(135deg,#eef2f3,#8e9eab);
+    overflow:hidden;
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 40px;
+    background: linear-gradient(90deg, #0f2027, #203a43, #2c5364);
+}
+
+.logo{
+    color:#ffffff;
+    font-size:24px;
+    font-weight:bold;
+}
+
+/* MENU */
+.menu{
+    display:flex;
+    gap:10px;
+    flex-wrap:nowrap;
+    overflow-x:auto;
+}
+
+.menu::-webkit-scrollbar{
+    display:none;
+}
+
+.menu a{
+    text-decoration:none;
+    color:#e6f1ff;
+    padding:9px 16px;
+    border-radius:25px;
+    font-size:15px;
+    white-space:nowrap;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:#64ffda;
+    color:#0a192f;
+    transform:scale(1.05);
+}
+
+
+.hero{
+    flex:1;
+    background:url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.hero-text{
+    position:relative;
+    color:#ffffff;
+}
+
+.hero-text h1{
+    font-size:48px;
+}
+
+.hero-text p{
+    font-size:18px;
+}
+
+
+.footer{
+    text-align:center;
+    padding:15px;
+    background: linear-gradient(90deg, #0a192f, #112d4e);
+    color:#e6f1ff;
+    font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+
+<div class="navbar">
+    <div class="logo">⚡ Cricket League</div>
+
+    <div class="menu">
+        <a href="{% url 'addorganizer' %}"> Add Organizer</a> 
+        <a href="{% url 'addmatch_details' %}">Add Match Details</a>
+        <a href="{% url 'addplayer_details' %}">Add Player Details</a>
+        <a href="{% url 'addawards' %}">Add Awards</a>
+        <a href="{% url 'addmatch_statics' %}">Add Match Statistics</a> 
+        <a href="{% url 'addtplayer_statics' %}">Add Player Statistics</a>
+        <a href="{% url 'vieworg' %}">View organizer</a>
+        <a href="{% url 'viewmatchdetail' %}">View Match Details</a>
+        <a href="{% url 'changepassword' %}">Change Password</a>
+        <a href="{% url 'login' %}">Logout</a>    
+    </div>
+</div>
+
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>Cricket Tournament Organizer</h1>
+        <p>Organize • Manage • Analyze Matches Efficiently</p>
+    </div>
+</div>
+
+
+<div class="footer">
+    © 2026 Cricket Tournament Management System
+</div>
+
+</body>
+</html>

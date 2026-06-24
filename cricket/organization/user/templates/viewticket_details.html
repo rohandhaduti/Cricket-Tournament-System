@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ticket Information</title>
+<style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        table {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background: #fff;
+        }
+
+        th, td {
+            padding: 10px;
+            text-align: center;
+            border: 1px solid #ccc;
+        }
+
+        th {
+            background: #007bff;
+            color: white;
+        }
+
+        tr:nth-child(even) {
+            background: #f2f2f2;
+        }
+
+        tr:hover {
+            background: #e6f2ff;
+        }
+
+        .delete-btn {
+            color: red;
+            font-weight: bold;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+{% include 'user_menu.html' %}
+<div class="container">
+<h1>Ticket Details </h1>
+<form>
+    <table>
+        <tr>
+            <th>match_id</th>
+            <th>venue</th>
+            <th>ticket_type</th>
+            <th>total_ticket</th>
+            <th>price</th>
+            <th>Action</th>
+        </tr>
+        {% for i in userdict %}
+        <tr>
+            <td>{{i.match_id}}</td>
+            <td>{{i.venue}}</td>
+            <td>{{i.ticket_type}}</td>
+            <td>{{i.total_ticket}}</td>
+            <td>{{i.price}}</td>
+            <td><a href="{% url 'delticket_details' i.id %}">Delete</a></td>
+
+        </tr>
+        {% endfor %}
+    </table>
+</form>
+</div>
+</body>
+</html>

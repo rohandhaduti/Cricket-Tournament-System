@@ -1,0 +1,83 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Register</title>
+
+<style>
+body{
+    margin:0; height:100vh;
+    background:url("{% static 'back3.jpeg' %}") center/cover no-repeat;
+    font-family:Arial;
+    display:flex; align-items:center; justify-content:center;
+}
+
+.form-box{
+    background:rgba(74, 68, 77, 0.5);
+    padding:30px;
+    width:340px;
+    border-radius:20px;
+    box-shadow: 2px 3px 10px white;
+}
+
+.form-box h2{
+    text-align:center;
+    color:#fff;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+.regbtn{
+    background:#3bff42;
+    color:#000;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.msg{
+    color:red;
+    text-align:center;
+    margin-bottom:10px;
+    font-weight:bold;
+}
+</style>
+</head>
+
+<body>
+
+<form method="POST" action="{% url 'insertnewuser' %}">
+    {% csrf_token %}
+    
+    <div class="form-box">
+        
+        <h2><span style="color:rgb(255, 77, 0);">R</span>egister</h2>
+
+        <!-- ✅ Message -->
+        {% if msg %}
+        <div class="msg">{{msg}}</div>
+        {% endif %}
+
+        <input type="text" placeholder="Enter your Full Name" name="t1" required pattern="[a-zA-Z\s]+">
+        
+        <input type="email" placeholder="Enter Email" name="t2" required>
+        
+        <input type="text" name="t3" placeholder="Enter Mobile number" required pattern="[6-9]{1}[0-9]{9}">
+        
+        <input type="password" placeholder="Password" name="t4" required>
+        
+        <input type="text" placeholder="Enter City" name="t5" required pattern="[a-zA-Z\s]+">
+        
+        <input type="submit" value="Register" class="regbtn">
+        
+    </div>
+</form>
+
+</body>
+</html>

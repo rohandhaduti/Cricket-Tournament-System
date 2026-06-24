@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizer Information</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#a1c4fd,#c2e9fb);
+    min-height:100vh;
+}
+.wrapper{
+    background:#fff;
+    width:100%;
+    max-width:400px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    margin:120px auto;   /* space for organization_menu */
+}
+h1{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:15px;
+    color:#333;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+input[type="submit"]{
+    background:#4a6cf7;
+    color:#fff;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+input[type="submit"]:hover{
+    background:#3b57d0;
+}
+@media(max-width:480px){
+    .wrapper{
+        margin:90px 15px;
+    }
+    h1{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+{% include 'organization_menu.html' %}
+
+<div class="wrapper">
+    <h1>Organizer Information</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <input type="text" name="t1" value="{{s1}}" 
+               placeholder="Enter Organizer ID" required pattern="[0-9]+">
+
+        <input type="text" name="t3" 
+               placeholder="Enter Sponsor Name" required pattern="[a-z][A-Z/s]+">
+
+        <input type="text" name="t4" 
+               placeholder="Enter  Player Name" required pattern="[a-z][A-Z/s]+">
+
+        <input type="text" name="t5" 
+               placeholder="Enter Team Name" required >
+
+        <input type="submit" name="t6" value="Submit">
+    </form>
+</div>
+
+</body>
+</html>

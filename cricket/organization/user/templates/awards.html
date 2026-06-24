@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Awards Details</title>
+
+<style>
+/* RESET */
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:#f4f6f9;
+}
+
+
+
+/* FORM WRAPPER */
+.wrapper{
+    max-width:400px;
+    margin:120px auto;   /* space for navbar */
+    background:#fff;
+    padding:20px;
+    border-radius:8px;
+    box-shadow:0 4px 8px rgba(0,0,0,0.1);
+}
+
+h1{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:15px;
+}
+
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+
+input[type="submit"]{
+    background:#007bff;
+    color:#fff;
+    border:none;
+    cursor:pointer;
+}
+
+input[type="submit"]:hover{
+    background:#0056b3;
+}
+
+@media(max-width:480px){
+    .wrapper{
+        margin:90px 15px;
+    }
+    h1{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+ {% include 'organization_menu.html' %}
+<div class="wrapper">
+    <form method="POST">
+        {% csrf_token %}
+        <h1>Awards Details</h1>
+
+        <input type="text" name="t1" value="{{s1}}" 
+               placeholder="Award ID" required pattern="[0-9]+">
+
+        <input type="text" name="t2" 
+               placeholder="Enter award name" 
+               required pattern="[a-zA-Z\s]+">
+
+        <input type="date" name="t3" required>
+
+        <input type="submit" name="t4" value="Next">
+    </form>
+</div>
+
+</body>
+</html>

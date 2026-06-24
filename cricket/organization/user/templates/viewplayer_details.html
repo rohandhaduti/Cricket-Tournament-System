@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Information</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin:0;
+}
+.container{
+    margin:40px auto;
+    width:90%;
+}
+h1{
+    text-align:center;
+    margin-bottom:15px;
+}
+table{
+    width:100%;
+    max-width:1100px;
+    margin:auto;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+th, td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ccc;
+}
+
+th{
+    background:#007bff;
+    color:white;
+}
+
+tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+tr:hover{
+    background:#e6f2ff;
+}
+
+a{
+      color:green;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+    color: red;
+}
+@media(max-width:600px){
+    table{
+        font-size:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+{% include 'user_menu.html' %}
+
+<div class="container">
+<h1>Player Details</h1>
+
+<table>
+    <tr>
+        <th>Player ID</th>
+        <th>Player Name</th>
+        <th>Address</th>
+        <th>Age</th>
+        <th>Player Type</th>
+        <th>Photo</th>
+        <th>Debut Year</th>
+    </tr>
+
+    {% for i in userdict %}
+    <tr>
+        <td>{{ i.player_id }}</td>
+        <td>{{ i.name }}</td>
+        <td>{{ i.address }}</td>
+        <td>{{ i.age }}</td>
+<td>{{ i.player_type }}</td>        <td>
+            {% if i.photo %}
+            <img src="{{ i.photo.url }}" width="60" height="50">
+            {% else %}
+            <span style="color:#999;">No Image</span>
+            {% endif %}
+        </td>
+        <td>{{ i.debut }}</td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="9">No player records found</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>

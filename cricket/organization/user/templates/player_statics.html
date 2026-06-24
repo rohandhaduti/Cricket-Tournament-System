@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Player Details</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#f6d365,#fda085);
+    min-height:100vh;
+}
+.container{
+    background:#fff;
+    width:100%;
+    max-width:450px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.2);
+    margin:120px auto;
+}
+h1{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:15px;
+    color:#333;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+input[type="submit"]{
+    background:#4a6cf7;
+    color:#fff;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+
+input[type="submit"]:hover{
+    background:#e6762e;
+}
+@media(max-width:480px){
+    .container{
+        margin:90px 15px;
+    }
+    h1{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+{% include 'organization_menu.html' %}
+
+<div class="container">
+<h1>Player Statistics</h1>
+
+<form method="POST">
+{% csrf_token %}
+
+<input type="number" name="t1" value="{{s1}}" 
+       placeholder="Player ID" required pattern="[0-9]+" readonly>
+
+<input type="number" name="t2" 
+       placeholder="Enter Match id" required pattern="[A-Za-z\s]+">
+
+<input type="number" name="t3" 
+       placeholder="Enter Total Score" required>
+
+<input type="number" name="t4" 
+       placeholder="Enter No of Catches" required>
+
+<input type="number" name="t5" 
+       placeholder="Enter No of Wickets" required >
+
+<input type="text" name="t6" 
+       placeholder="Enter Awards Name" required>
+
+<input type="submit" name="t9" value="Submit">
+
+</form>
+</div>
+
+</body>
+</html>

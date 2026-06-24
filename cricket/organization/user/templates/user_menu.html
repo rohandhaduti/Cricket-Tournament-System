@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Cricket Tournament Navbar</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#eef2f7;
+}
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 60px;
+    background:linear-gradient(90deg, rgba(0,61,128,1), rgba(0,153,102,1));
+    box-shadow:0 4px 10px rgba(0,0,0,0.3);
+}
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+.menu{
+    list-style:none;
+    display:flex;
+}
+
+.menu {
+    margin-left:30px;
+}
+
+.menu  a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    padding:8px 16px;
+    border-radius:20px;
+    transition:0.3s;
+}
+.menu  a:hover{
+    background:white;
+    color:rgba(0,153,102,1);
+}
+.login{
+    background:rgba(255,193,7,1);
+    color:black !important;
+}
+
+.login:hover{
+    background:white;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">⚡Cricket League</div>
+
+    <ul class="menu">
+            <a href="{% url 'vieworganizer' %}">View organizer</a>
+            <a href="{% url 'viewmatch_details' %}">View Match Details</a>
+            <a href="{% url 'viewplayer_details' %}">View Player Details</a>
+            <a href="{% url 'viewawards' %}">View Awards</a>
+            <a href="{% url 'viewmatch_statics' %}">View Match statics</a>
+            <a href="{% url 'viewplayer_statics' %}">View Player statics</a>
+            <a href="{% url 'changepassword' %}">Change Password</a>
+            <a href="{% url 'login' %}">Logout</a>
+    </ul>
+
+</div>
+
+</body>
+</html>

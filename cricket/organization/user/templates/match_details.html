@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Details</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#43cea2,#185a9d);
+    min-height:100vh;
+}
+.container{
+    max-width:420px;
+    margin:70px auto;
+    background:#fff;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:15px;
+    color:#333;
+}
+input, select{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+    font-size:14px;
+}
+input[type="submit"]{
+    background:#2d89ef;
+    color:#fff;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:12px;
+}
+
+input[type="submit"]:hover{
+    background:#1b5fc1;
+}
+p{
+    margin:10px 0 4px;
+    color:gray;
+    font-size:14px;
+}
+@media(max-width:480px){
+    .container{
+        margin:90px 15px;
+    }
+    h1{
+        font-size:18px;
+    }
+}
+</style>
+</head>
+<body>
+ {% include 'organization_menu.html' %}
+
+
+<div class="container">
+<h1>Match Details</h1>
+
+<form method="POST" onsubmit="return confirmSubmit()">
+{% csrf_token %}
+
+<input type="text" name="t1" value="{{s1}}" placeholder="Match ID" required pattern="[0-9]+">
+
+<input type="text" name="t2" placeholder="Enter Match No" required pattern="[0-9]{2}">
+
+<input type="date" name="t3" required>
+
+<p>Venue</p>
+<select name="t4" required>
+    <option value="">Select Venue</option>
+    <option value="Narendra Modi Stadium">Narendra Modi Stadium – Ahmedabad</option>
+    <option value="MCG">Melbourne Cricket Ground (MCG) – Melbourne</option>
+    <option value="Perth Stadium">Perth Stadium – Perth</option>
+</select>
+
+<input type="text" name="t5" placeholder="Enter Team 1" required>
+
+<input type="text" name="t6" placeholder="Enter Team 2" required>
+
+<input type="time" name="t7" required>
+
+<input type="submit" name="t8" value="Submit">
+
+</form>
+</div>
+
+</body>
+</html>

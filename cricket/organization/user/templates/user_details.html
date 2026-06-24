@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Details</title>
+<style>
+body{
+    margin:0;
+    font-family:Arial, sans-serif;
+    background:linear-gradient(135deg,#fdfbfb,#ebedee);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+.container{
+    background:#fff;
+    width:100%;
+    max-width:420px;
+    padding:25px;
+    border-radius:12px;
+    box-shadow:0 6px 16px rgba(0,0,0,0.2);
+}
+h1{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:15px;
+    color:#333;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ccc;
+    border-radius:6px;
+}
+input[type="submit"]{
+    background:#4a6cf7;
+    color:#fff;
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    margin-top:10px;
+}
+input[type="submit"]:hover{
+    background:#3b57d0;
+}
+@media(max-width:480px){
+    .container{margin:20px;}
+    h1{font-size:18px;}
+}
+</style>
+</head>
+<body>
+{% include 'organization_menu.html' %}
+<div class="container">
+<h1>user Details </h1>
+<form method="POST">
+{% csrf_token %}
+<input type="text" name="t1" value="{{s1}}" required pattern="[0-9]+">
+<input type="text" name="t2" placeholder="Enter Name" pattern="[a-zA-Z\s]+">
+<input type="text" name="t3" placeholder="Enter Address" pattern="[a-zA-Z\s]+">
+<input type="email" name="t4" placeholder="Enter Email ID" required>
+<input type="text" name="t5" placeholder="Enter Aadhaar No" pattern="[0-9]{4}\s[0-9]{4}\s[0-9]{4}">
+<input type="tel" name="t6" placeholder="Enter Mobile No" required>
+<input type="submit" name="t7" value="Next">
+</form>
+</div>
+</body>
+</html>

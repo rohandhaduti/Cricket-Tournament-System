@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome User</title>
+<style>
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #fbc2eb, #a6c1ee);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container {
+    background: #fff;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 90%;
+    max-width: 350px;
+}
+h1 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    color: #333;
+}
+input[type="submit"] {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    background: #4a6cf7;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+}
+input[type="submit"]:hover {
+    background: #3b57d0;
+}
+@media(max-width:480px){
+    .container {padding: 20px;}
+    h1 {font-size: 18px;}
+}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Welcome to User</h1>
+<form method="POST">
+{% csrf_token %}
+<input type="submit" name="t1" value="Next">
+</form>
+</div>
+</body>
+</html>

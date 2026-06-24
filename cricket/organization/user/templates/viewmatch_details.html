@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Match Details</title>
+
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background: #f4f6f8;
+    margin:0;
+}
+.container{
+    margin:40px auto;
+    width:90%;
+}
+h1{
+    text-align:center;
+    margin-bottom:20px;
+}
+table{
+    width:100%;
+    max-width:1000px;
+    margin:auto;
+    border-collapse:collapse;
+    background:#fff;
+}
+
+th, td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ccc;
+}
+
+th{
+    background:#007bff;
+    color:white;
+}
+
+tbody tr:nth-child(even){
+    background:#f2f2f2;
+}
+
+tbody tr:hover{
+    background:#e6f2ff;
+}
+a{
+     color:green;
+    font-weight:bold;
+    text-decoration:none;
+}
+
+a:hover{
+    text-decoration:underline;
+    color: red;
+}
+@media(max-width:600px){
+    table{
+        font-size:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+{% include 'user_menu.html' %}
+
+<div class="container">
+<h1>Match Details</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>Match No</th>
+            <th>IPL No</th>
+            <th>Date</th>
+            <th>Venue</th>
+            <th>Team 1</th>
+            <th>Team 2</th>
+            <th>Start Time</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        {% for i in userdict %}
+        <tr>
+            <td>{{ i.match_no }}</td>
+            <td>{{ i.ipl_no }}</td>
+            <td>{{ i.date}}</td>
+            <td>{{ i.venue }}</td>
+            <td>{{ i.team1 }}</td>
+            <td>{{ i.team2 }}</td>
+            <td>{{ i.start_time}}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="8" style="text-align:center; font-weight:bold;">
+                No match records found
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+</div>
+
+</body>
+</html>

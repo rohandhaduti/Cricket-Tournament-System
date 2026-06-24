@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Organizer Information</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg,#a1c4fd,#c2e9fb);
+    min-height:100vh;
+}
+.wrapper{
+    background:#fff;
+    width:90%;
+    max-width:900px;
+    padding:25px;
+    border-radius:10px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+    margin:40px auto;
+}
+h1{
+    text-align:center;
+    font-size:22px;
+    margin-bottom:15px;
+    color:#333;
+}
+table{
+    width:100%;
+    border-collapse:collapse;
+}
+
+th, td{
+    padding:10px;
+    text-align:center;
+    border:1px solid #ccc;
+}
+
+th{
+    background:#4a6cf7;
+    color:#fff;
+}
+
+a{
+    
+    color:green;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+a:hover{
+    text-decoration:underline;
+    color: red;
+}
+@media(max-width:480px){
+    .wrapper{
+        margin:90px 10px;
+    }
+    h1{
+        font-size:18px;
+    }
+    table{
+        font-size:12px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+{% include 'organization_menu.html' %}
+
+<div class="wrapper">
+<h1>Organizer Information</h1>
+
+<table>
+    <tr>
+        <th>Match No</th>
+        <th>Suspect Name</th>
+        <th> Players Name</th>
+        <th>Team Name</th>
+        <th>Action</th>
+    </tr>
+
+    {% for i in userdict %}
+    <tr>
+        <td>{{ i.match_details }}</td>
+        <td>{{ i.suspect_details }}</td>
+        <td>{{ i.add_players }}</td>
+        <td>{{ i.team_details }}</td>
+        <td>
+            <a class="a" href="{% url 'delorganizer' i.id %}"
+               onclick="return confirm('Are you sure you want to delete?');">
+               Delete
+            </a>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="6">No records found</td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>

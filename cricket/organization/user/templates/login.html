@@ -1,0 +1,101 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Login</title>
+<style>
+body{
+    margin:0;
+    height:100vh;
+    background:url("{% static 'back7.jpeg' %}") center/cover no-repeat;
+    font-family:Arial;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.form-box{
+    background:rgba(0,0,0,0.75);
+    padding:30px;
+    width:320px;
+    border-radius:15px;
+    color:#fff;
+    box-shadow: 2px 3px 10px white;
+}
+.form-box h2{
+    text-align:center;
+    margin-bottom:20px;
+}
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border:none;
+    border-radius:5px;
+}
+.lgnbtn{
+    background:#00c6ff;
+    color:#fff;
+    font-size:16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+.msg{
+    color:green;
+    text-align:center;
+    font-weight:bold;
+}
+.msg1{
+    color: red;
+    text-align:center;
+    font-weight:bold;
+}
+.links{
+    margin-top:10px;
+    text-align:center;
+}
+.links a{
+    color:aqua;
+    display:block;
+    margin-top:5px;
+    text-decoration:none;
+}
+.links a:hover{
+    text-decoration:underline;
+}
+</style>
+</head>
+<body>
+<form method="POST" action="{% url 'login' %}">
+    {% csrf_token %}
+    <div class="form-box">
+        <h2><span style="color: coral;">L</span>ogin</h2>
+        
+        <!-- ✅ Messages -->
+        {% if msg %}
+        <div class="msg">{{msg}}</div>
+        {% endif %}
+
+        {% if msg1 %}
+        <div class="msg1">{{msg1}}</div>
+        {% endif %}
+
+        {% if msg2 %}
+        <div class="msg1">{{msg2}}</div>
+        {% endif %}
+
+        <input type="email" placeholder="Email" required name="t1">
+
+        <input type="password" placeholder="Password" name="t2" required>
+
+        <input type="submit" value="Login" class="lgnbtn">
+
+        <div class="links">
+            <a href="{% url 'insertnewuser' %}">New User?</a>
+            <a href="{% url 'forgotpassword' %}">Forgot Password</a>
+        </div>
+
+    </div>
+</form>
+
+</body>
+</html>

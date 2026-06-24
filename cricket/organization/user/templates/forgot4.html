@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+<title>Forgot Password</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+/* BODY */
+body{
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(135deg,#ff9a9e,#fad0c4);
+}
+
+/* BOX */
+.box{
+    background:white;
+    padding:30px;
+    width:340px;
+    border-radius:12px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.2);
+}
+
+/* TITLE */
+h2{
+    text-align:center;
+    margin-bottom:20px;
+    color:#333;
+}
+
+/* INPUT */
+input{
+    width:100%;
+    padding:10px;
+    margin:10px 0;
+    border-radius:6px;
+    border:1px solid #ccc;
+    transition:0.3s;
+}
+
+input:focus{
+    border-color:#4facfe;
+    outline:none;
+}
+
+/* BUTTON */
+.btn {
+    background: linear-gradient(90deg,#4facfe,#00c6ff);
+    color:rgba(238, 23, 23, 0.689);
+    border:none;
+    font-weight:bold;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+/* HOVER */
+.btn:hover{
+    background: linear-gradient(90deg,#00c6ff,#4facfe);
+    transform:scale(1.05);
+    box-shadow:0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* MESSAGE */
+.msg{
+    text-align:center;
+    color:green;
+    font-size:14px;
+}
+
+.err{
+    text-align:center;
+    color:red;
+    font-size:14px;
+}
+
+/* LINK */
+a{
+    display:block;
+    text-align:center;
+    margin-top:10px;
+    color:#d80c0c;
+    text-decoration:none;
+}
+
+a:hover{
+    color:#007bff;
+}
+
+.b{
+    background-color:chartreuse;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>Forgot Password</h2>
+    <form method="POST">
+{% csrf_token %}
+<label> Email ID</label>
+<input type="text" name="t1" placeholder="Enter  Email ID">
+<a href="{% url 'login' %}"><input class="b" type="submit" name="t2" value="Change password" ></a>
+{{content}}
+</form>
+
+</div>
+
+</body>
+</html>

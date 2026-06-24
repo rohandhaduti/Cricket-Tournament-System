@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Attractive Navbar</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+body{
+    background:#f4f6fb;
+}
+
+/* Navbar */
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 50px;
+    background:linear-gradient(90deg, #0a192f, #112d4e);
+}
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+.menu{
+    list-style:none;
+    display:flex;
+}
+
+.menu {
+    margin-left:30px;
+}
+
+.menu  a{
+    text-decoration:none;
+    color:white;
+    font-size:16px;
+    padding:8px 15px;
+    border-radius:20px;
+    transition:0.3s;
+}
+.menu  a:hover{
+    background:white;
+    color:#203a43;
+}
+.btn{
+    background:#ff9800;
+    padding:8px 18px;
+    border-radius:25px;
+}
+
+.btn:hover{
+    background:#ffc107;
+    color:black;
+}
+</style>
+</head>
+
+<body>
+
+<div class="navbar">
+
+    <div class="logo">⚡Cricket League</div>
+
+    <ul class="menu">
+            
+        <a href="{% url 'addorganizer' %}">Add Organizer</a> 
+        <a href="{% url 'addmatch_details' %}">Add Match Details</a>
+        <a href="{% url 'addplayer_details' %}">Add Player Details</a>
+        <a href="{% url 'addawards' %}">Add Awards</a>
+        <a href="{% url 'addmatch_statics' %}">Add Match Statistics</a> 
+        <a href="{% url 'addtplayer_statics' %}">Add Player Statistics</a>
+        <a href="{% url 'vieworg' %}">View organizer</a>
+        <a href="{% url 'viewmatchdetail' %}">View Match Details</a>
+        <a href="{% url 'changepassword' %}">Change Password</a>
+        <a href="{% url 'login' %}">Logout</a> 
+
+    </ul>
+
+</div>
+
+</body>
+</html>

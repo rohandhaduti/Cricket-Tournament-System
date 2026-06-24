@@ -1,0 +1,165 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>User Dashboard</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: Arial, sans-serif;
+}
+
+html, body{
+    height:100%;
+}
+
+body{
+    display:flex;
+    flex-direction:column;
+    background:#eef2f7;
+    overflow:hidden; /* remove page scrollbar */
+}
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 60px;
+    background:linear-gradient(90deg, rgba(0,61,128,1), rgba(0,153,102,1));
+}
+
+.logo{
+    color:white;
+    font-size:24px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    gap:10px;
+}
+
+.menu a{
+    text-decoration:none;
+    color:white;
+    padding:8px 14px;
+    border-radius:20px;
+    font-size:14px;
+    transition:0.3s;
+}
+
+.menu a:hover{
+    background:white;
+    color:rgba(0,153,102,1);
+}
+
+.hero{
+    height:75vh;
+    background:url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1400&q=80") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.hero-text{
+    position:relative;
+}
+
+.hero-text h1{
+    font-size:42px;
+}
+
+.hero-text p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+.hero{
+    flex:1;
+    background:url("https://assets.architecturaldigest.in/photos/6735d929223b0525d7350173/16:9/w_1620,h_911,c_limit/Untitled%20design%20(44).png") center/cover no-repeat;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:white;
+    position:relative;
+}
+
+.hero::after{
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+    background:rgba(0,0,0,0.6);
+}
+
+.hero-text{
+    position:relative;
+}
+
+.hero-text h1{
+    font-size:42px;
+}
+
+.hero-text p{
+    font-size:18px;
+    margin-top:10px;
+}
+
+.footer{
+    text-align:center;
+    padding:15px;
+    background:#003d80;
+    color:white;
+}
+</style>
+</head>
+
+<body>
+
+
+
+<div class="navbar">
+    <div class="logo">⚡ Cricket League</div>
+
+    <div class="menu">
+            <a href="{% url 'vieworganizer' %}">View organizer</a>
+            <a href="{% url 'viewmatch_details' %}">View Match Details</a>
+            <a href="{% url 'viewplayer_details' %}">View Player Details</a>
+            <a href="{% url 'viewawards' %}">View Awards</a>
+            <a href="{% url 'viewmatch_statics' %}">View Match statics</a>
+            <a href="{% url 'viewplayer_statics' %}">View Player statics</a>
+            <a href="{% url 'changepassword' %}">Change Password</a>
+            <a href="{% url 'login' %}">Logout</a>
+    </div>
+</div>
+
+<div class="hero">
+    <div class="hero-text">
+        <h1>Welcome to Cricket Tournament</h1>
+        <p>Explore Matches • Players • Scores • Awards</p>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+    © 2026 Cricket Tournament System | User Panel
+</div>
+
+</body>
+</html>
